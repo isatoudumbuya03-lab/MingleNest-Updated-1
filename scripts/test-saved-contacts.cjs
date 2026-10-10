@@ -1,0 +1,23 @@
+const fs = require('node:fs')
+const assert = require('node:assert/strict')
+const panel = fs.readFileSync('src/ContactsPanel.tsx', 'utf8')
+assert.ok(panel.includes("Contacts.requestPermissions()"))
+assert.ok(panel.indexOf("Contacts.getContacts(") > panel.indexOf("Contacts.requestPermissions()"))
+assert.ok(panel.includes('normalizePhone(item.number'))
+assert.ok(panel.includes("supabase.rpc('discover_minglenest_contacts'"))
+assert.ok(!/select\([^)]*(phone|phone_e164)/.test(panel))
+assert.ok(panel.includes(".delete().eq('owner_user_id', owner).eq('contact_user_id', person.id)"))
+assert.ok(!panel.includes("from('private_messages')") && !panel.includes("from('private_conversations')"))
+assert.ok(panel.includes('Share.share('))
+assert.ok(panel.includes("ignoreDuplicates: true"))
+assert.ok(panel.includes("onConflict: 'owner_user_id,contact_user_id'"))
+const env = Object.fromEntries(fs.readFileSync('.env','utf8').split('\n').filter(line => line.includes('=')).map(line => {const i=line.indexOf('=');return [line.slice(0,i),line.slice(i+1).trim()]}))
+async function test() {
+ const headers={apikey:env.VITE_SUPABASE_ANON_KEY,Authorization:`Bearer ${env.VITE_SUPABASE_ANON_KEY}`,'Content-Type':'application/json'}
+ const table=await fetch(`${env.VITE_SUPABASE_URL}/rest/v1/user_contacts?select=*`,{headers})
+ assert.ok([401,403].includes(table.status), 'Anonymous contacts access must fail')
+ const rpc=await fetch(`${env.VITE_SUPABASE_URL}/rest/v1/rpc/discover_minglenest_contacts`,{method:'POST',headers,body:JSON.stringify({p_hashes:[]})})
+ assert.ok(!rpc.ok, 'Anonymous verified-phone discovery must fail')
+ console.log('Passed saved-contact source invariants and live anonymous-access rejection checks. Real-account and Android device flows require device testing.')
+}
+test().catch(() => {console.error('Saved-contact security checks failed.');process.exitCode=1})

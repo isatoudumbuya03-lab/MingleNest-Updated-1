@@ -1,0 +1,68 @@
+/* Targeted layout fixes: Contacts, Status, profile sections, voice composer. Colours reuse existing tokens. */
+.contacts-discovery{display:grid;gap:12px;margin-block-start:12px}
+.contacts-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.contacts-head h3{margin:0;font-size:16px}
+.contacts-block{display:grid;gap:8px;padding:12px;border:1px solid rgba(91,63,208,.14);border-radius:14px;background:rgba(255,255,255,.6)}
+.contacts-block h4{margin:0;font-size:13px;font-weight:700;letter-spacing:.02em}
+.contacts-search{display:flex;gap:8px}.contacts-search input{flex:1;min-width:0;padding:10px 12px;border:1px solid #d9d0ec;border-radius:10px;font:inherit;font-size:14px;background:#fff;color:inherit}
+.contacts-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.contacts-note{margin:0;font-size:12px;line-height:1.4;opacity:.75}
+.contact-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-width:0}
+.contact-actions .contact-profile{flex:1 1 140px;min-width:0;display:flex;align-items:center;gap:8px;text-align:start}
+.contact-actions small{display:block;opacity:.7}
+.contacts-invite summary{font-size:13px;font-weight:600;cursor:pointer}
+.chat-contact-empty{font-size:12px!important;line-height:1.4;margin:8px 0;opacity:.7}
+
+/* Status: viewed / unviewed rings */
+.mn-ring{display:inline-flex;padding:2px;border-radius:50%;border:2.5px solid #b9b6c4;flex:none}
+.mn-ring.new{border-color:#6d3fe0}
+.mn-ring.seen{border-color:#b9b6c4}
+.mn-status-modal h2{display:flex;align-items:center;gap:8px;font-size:16px;margin:0}
+.name-link{border:0;background:transparent;padding:0;font:inherit;font-weight:700;color:inherit;cursor:pointer;text-align:start}
+.name-link:hover{text-decoration:underline}
+/* Status: compact composer + viewer */
+.mn-status-modal .modal-content{gap:8px;font-size:14px}
+.mn-status-input{width:100%;box-sizing:border-box;padding:12px 14px;line-height:1.5;border:1px solid #d9d0ec;border-radius:12px;font:inherit;font-size:15px;resize:none;overflow-wrap:anywhere;white-space:pre-wrap;min-height:84px;max-height:220px;background:#fff;color:inherit}
+.mn-status-picker{padding:10px 12px!important;min-height:0!important;height:auto!important;font-size:13px!important;line-height:1.3;text-align:center}
+.mn-status-preview{display:block;width:100%;max-height:34dvh;object-fit:contain;border-radius:12px;background:#111}
+.mn-status-modal video,.mn-status-modal img{max-height:42dvh;object-fit:contain}
+.mn-status-modal .mn-status-actions{gap:6px;flex-wrap:wrap}
+.mn-status-modal .mn-status-actions .secondary-button{padding:4px 10px;min-height:0;font-size:13px}
+.mn-status-modal h3{font-size:14px;margin:6px 0 0}
+.mn-status-modal textarea{padding:8px 10px;font-size:14px;box-sizing:border-box;width:100%;border-radius:10px}
+.mn-status-modal form{display:flex;gap:6px;align-items:flex-end}.mn-status-modal form label{flex:1;font-size:0}
+.mn-status-modal form .primary-button{padding:8px 12px;min-height:0;font-size:13px;flex:none}
+.mn-status-reply{display:grid;grid-template-columns:auto 1fr auto;column-gap:8px;align-items:center;padding:6px 8px;margin:0;border-radius:10px;font-size:13px}
+.mn-status-reply p{grid-column:1/-1;margin:2px 0 0;overflow-wrap:anywhere}
+.mn-status-reply time{font-size:11px;opacity:.7}.mn-status-reply .text-link{grid-column:1/-1;justify-self:end;font-size:12px}
+.mn-status-reply .avatar{width:24px;height:24px;font-size:11px}
+
+/* Compact comment cards */
+.thread-comment .comment{padding:6px 8px}
+.thread-content p{margin:2px 0;font-size:14px;line-height:1.4;overflow-wrap:anywhere}
+.thread-content time{font-size:11px}
+.thread-actions{display:flex;gap:10px;margin-block-start:2px}.thread-actions button{padding:2px 4px;font-size:12px}
+
+/* Profile counters */
+.profile-stats button{border:0;background:transparent;font:inherit;color:inherit;cursor:pointer;text-align:center;padding:4px 8px;display:grid;gap:2px}
+.profile-stats button.active strong{color:#5b3fd0}
+.profile-section{display:grid;gap:8px;margin-block:12px}
+.profile-section-item{display:grid;gap:2px;text-align:start;padding:10px 12px;border:1px solid #e8e1f0;border-radius:12px;background:#faf8ff;font:inherit;color:inherit}
+.profile-section-item time{font-size:11px;opacity:.7}
+.profile-section-item span{overflow-wrap:anywhere}
+/* Voice composer */
+.voice-composer{gap:8px;align-items:center}
+.voice-composer .voice-status{flex:1 1 100%;font-size:13px;font-weight:600}
+.voice-composer .recording-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#d33;margin-inline-end:6px}
+
+/* Full profile always above other overlays; compact reply/comment boxes */
+.modal-backdrop.profile-full-modal{z-index:400}
+.profile-sub{margin:12px 0 4px;font-size:14px}
+.viewer-profile-link{display:inline-flex;align-items:center;gap:8px;color:inherit}
+.comments-area form{display:flex;align-items:center;gap:6px;margin-block-start:6px}
+.comments-area form textarea{flex:1;min-width:0;min-height:36px!important;height:36px;max-height:96px;padding:8px 12px!important;border-radius:18px!important;font-size:14px!important;line-height:1.3;resize:none}
+.comments-area form button{flex:none;width:36px;height:36px;min-height:0;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:50%}
+.comments-area h3{font-size:14px;margin:6px 0}
+.mn-status-modal form textarea{min-height:36px!important;height:36px;max-height:96px;padding:8px 12px!important;border-radius:18px!important;resize:none}
+.mn-status-modal form .primary-button{border-radius:18px;height:36px}
+.reply-context{padding:4px 8px;font-size:12px}

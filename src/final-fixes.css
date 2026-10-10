@@ -1,0 +1,16 @@
+.mn-progress{display:flex;gap:3px;padding:8px 12px 0}
+.mn-progress span{flex:1;height:3px;border-radius:3px;background:#d9d3ee;overflow:hidden}
+.mn-progress i{display:block;height:100%;width:0;background:#5B21B6;border-radius:3px}
+.mn-progress i.run{animation:mnfill 8s linear forwards}
+@keyframes mnfill{from{width:0}to{width:100%}}
+.profile-tabs{display:flex;gap:6px;margin:4px 0 10px;padding:3px;background:#f0ecfa;border-radius:12px}
+.profile-tabs button{flex:1;min-height:38px;border:0;border-radius:10px;background:transparent;color:#565060;font:inherit;font-weight:600;font-size:14px}
+.profile-tabs button.on{background:#fff;color:#5B21B6;box-shadow:0 1px 4px #2a1a5a1f}
+.post-kind-row{display:flex;gap:8px}
+.post-kind-row .post-kind{flex:1;min-height:56px}
+.confirm-backdrop{position:fixed;inset:0;z-index:10001;display:flex;align-items:center;justify-content:center;background:#1a103a73;padding:24px}
+.confirm-dialog{width:100%;max-width:300px;background:#fff;border-radius:16px;padding:18px 18px 14px;box-shadow:0 12px 32px #2a1a5a40}
+.confirm-dialog h3{margin:0 0 14px;font-size:17px;color:#293b36}
+.confirm-dialog div{display:flex;gap:8px;justify-content:flex-end}
+.confirm-dialog button{min-height:40px;padding:0 18px;border-radius:10px;border:1px solid #d9d3ee;background:#fff;color:#293b36;font:inherit;font-weight:600}
+.confirm-dialog button.danger{background:#b3261e;border-color:#b3261e;color:#fff}

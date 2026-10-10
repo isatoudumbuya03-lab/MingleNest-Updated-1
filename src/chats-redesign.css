@@ -1,0 +1,24 @@
+/* Chats screen redesign — layout only, reuses existing colours (#5B21B6 purple, existing surface/ink variables). */
+.chats-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 10px}
+.chats-head h1{margin:0;font-size:24px;line-height:1.2}
+.chats-head button{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:0;background:#5B21B6;color:#fff;cursor:pointer;flex:none}
+.chat-page{min-height:0}
+.chat-page .chat-layout{min-height:0}
+.chat-page .chat-list{max-width:100%;overflow-x:hidden;padding:14px 16px 8px}
+.chat-page .chats-search-bar{display:flex;align-items:center;gap:8px;height:40px;box-sizing:border-box;margin:0;padding:0 12px;border-radius:20px;width:100%;max-width:100%;background:#DDF4FF;border:0}
+.chats-search-bar input{flex:1;min-width:0;border:0;background:transparent;outline:0;font-size:14px;color:var(--ink);padding:0;height:100%}
+.chats-search-bar input:focus-visible{outline:0}
+.chats-search-clear{border:0;background:none;display:grid;place-items:center;width:26px;height:26px;color:inherit;cursor:pointer;padding:0}
+.chats-results,.chats-list{margin-top:12px;display:flex;flex-direction:column}
+.chat-page .chats-list-title{display:block;font-size:16px;font-weight:700;letter-spacing:0;margin:0 0 4px;padding:0;color:var(--ink)}
+.chats-hint{margin:8px 0;padding:0;font-size:14px;line-height:1.4;color:#6d6578}
+.chat-row.chats-convo,.chat-row.chats-result{padding:11px 4px;border-bottom:1px solid rgba(91,33,182,.1);border-radius:0;gap:12px}
+.chats-convo .avatar,.chats-result .avatar{width:48px;height:48px;flex:none}
+.chats-convo .chat-row-copy,.chats-result .chat-row-copy{gap:3px}
+.chats-convo .chat-row-copy strong,.chats-result .chat-row-copy strong{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chats-convo .chat-row-copy strong em{font-style:normal;font-weight:400;font-size:12px;color:#6d6578}
+.chats-convo .chat-row-copy small,.chats-result .chat-row-copy small{font-size:13px}
+.chats-unread-text{color:var(--ink)!important;font-weight:600}
+.chats-meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:none;align-self:flex-start;padding-top:2px}
+.chats-meta time{font-size:11px;color:#6d6578}
+.chats-meta b{min-width:20px;height:20px;padding:0 6px;box-sizing:border-box;border-radius:10px;background:#5B21B6;color:#fff;font-size:11px;display:grid;place-items:center}

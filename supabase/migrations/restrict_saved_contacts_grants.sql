@@ -1,0 +1,1 @@
+revoke all on public.user_contacts from anon; revoke all on public.user_contacts from authenticated; grant select, insert, delete on public.user_contacts to authenticated;
