@@ -29,7 +29,7 @@ jobs:
         run: ./gradlew bundleRelease --no-daemon
 
       - name: Sign Android Release AAB
-        uses: rskiko/signed-build-action@v1.3.1
+        uses: rslocium/signed-build-action@v1.3.1
         with:
           releaseDirectory: app/build/outputs/bundle/release
           signingKeyBase64: ${{ secrets.KEYSTORE_BASE64 }}
