@@ -18,8 +18,10 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install Dependencies and Expo
+        run: |
+          npm install
+          npm install expo --save-exact
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
