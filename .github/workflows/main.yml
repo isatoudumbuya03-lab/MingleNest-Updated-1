@@ -22,20 +22,16 @@ jobs:
           java-version: '17'
 
       - name: Grant Execute Permission for Gradle Wrapper
-        run: |
-          cd android
-          chmod +x gradlew
+        run: chmod +x gradlew
 
       - name: Build Android App Bundle (.aab)
-        run: |
-          cd android
-          ./gradlew bundleRelease --no-daemon
+        run: ./gradlew bundleRelease --no-daemon
 
       - name: Sign Android Release AAB
         uses: r0adkll/sign-android-release@v1
         id: sign_app
         with:
-          releaseDirectory: android/app/build/outputs/bundle/release
+          releaseDirectory: app/build/outputs/bundle/release
           signingKeyBase64: ${{ secrets.KEYSTORE_BASE64 }}
           alias: ${{ secrets.KEY_ALIAS }}
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
