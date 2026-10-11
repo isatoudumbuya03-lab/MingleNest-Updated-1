@@ -1,7 +1,7 @@
 {
   "name": "vite-react-typescript-starter",
   "private": true,
-  "version": "1.0.1",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "capacitor:sync:after": "node scripts/configure-android-contacts.cjs",
