@@ -52,9 +52,9 @@ jobs:
           cd android
           ./gradlew bundleRelease --no-daemon
 
-      - name: Upload Unsigned AAB Artifact
+      - name: Upload AAB Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-release-unsigned-aab
-          path: android/app/build/outputs/bundle/release/app-release.unsigned.aab
+          name: app-release-aab
+          path: android/app/build/outputs/bundle/release/*.aab
           retention-days: 7
