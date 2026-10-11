@@ -18,10 +18,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Dependencies and Expo
-        run: |
-          npm install
-          npm install expo --save-exact
+      - name: Install Dependencies
+        run: npm install
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -30,7 +28,7 @@ jobs:
           java-version: '17'
 
       - name: Generate Android Folder (Prebuild)
-        run: npx expo prebuild --platform android
+        run: npx expo prebuild --platform android --clean --non-interactive
 
       - name: Grant Execute Permission for Gradle Wrapper
         run: |
