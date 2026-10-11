@@ -58,3 +58,14 @@ jobs:
           name: app-release-aab
           path: android/app/build/outputs/bundle/release/*.aab
           retention-days: 7
+
+      - name: Generate PEM Certificate
+        run: |
+          keytool -export -rfc -keystore android/app/release.keystore -alias release -storepass ${{ secrets.KEYSTORE_PASSWORD }} -file upload_certificate.pem || true
+
+      - name: Upload PEM Certificate Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: upload-certificate-pem
+          path: upload_certificate.pem
+          retention-days: 7
