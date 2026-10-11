@@ -32,7 +32,7 @@ jobs:
       - name: Generate Android Folder (Prebuild)
         env:
           CI: "1"
-        run: npx expo prebuild --platform android --clean
+        run: npx expo prebuild --platform android --clean --no-install
 
       - name: Grant Execute Permission for Gradle Wrapper
         run: |
